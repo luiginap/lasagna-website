@@ -473,6 +473,22 @@ footer.ml { background:var(--ml-red-dark); }
   .loc-detail-photo-grid img { height: 120px; }
   .locations-hero { padding: 6rem 1.4rem 2.5rem; }
 }
+
+@media (max-width:768px) {
+  nav { padding:0.6rem 1rem!important; }
+  .loc-full-grid { grid-template-columns:1fr!important; }
+  .loc-full-img { height:180px!important; }
+  .loc-detail-inner { grid-template-columns:1fr!important; gap:1.5rem!important; }
+  .loc-detail-photo img { height:200px!important; }
+  .loc-detail-photo-grid img { height:120px!important; }
+  .loc-detail-section { padding:2.5rem 1.4rem!important; }
+  div[style*="padding:8rem"] { padding:5.5rem 1.4rem 2.5rem!important; }
+  footer div[style*="display:flex"] { flex-direction:column!important; gap:1rem!important; }
+}
+
+@media (max-width:768px) {
+  nav > div:nth-child(2) { display:none!important; }
+}
 </style>
 </head>
 <body>

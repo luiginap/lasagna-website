@@ -356,6 +356,26 @@ footer.ml { background:var(--ml-red-dark); }
   .hamburger { display: flex; }
 }
 
+
+@media (max-width:768px) {
+  nav { padding:0.6rem 1rem!important; }
+  .nav-links { display:none!important; }
+  .hero { padding:5.5rem 1.2rem 2.5rem!important; min-height:80vh; }
+  .hero h1 { font-size:clamp(1.8rem,7vw,3rem)!important; }
+  .two-col { grid-template-columns:1fr!important; gap:2rem!important; }
+  .photo-frame { padding:0!important; }
+  .photo-frame::before { display:none!important; }
+  .photo-frame img { height:220px!important; }
+  .stats { grid-template-columns:1fr 1fr!important; gap:1rem!important; }
+  .stat-num { font-size:1.8rem!important; }
+  .menu-grid { grid-template-columns:1fr!important; }
+  .loc-grid { grid-template-columns:1fr!important; }
+  .loc-card { padding:1.5rem 1.2rem!important; }
+  .delivery-inner { flex-direction:column!important; gap:1rem!important; }
+  .section { padding:3rem 1.4rem!important; }
+  footer .footer-top { grid-template-columns:1fr!important; gap:1.5rem!important; }
+  .footer-bottom { flex-direction:column!important; gap:0.5rem!important; text-align:center!important; }
+}
 </style>
 <style>
 .prose-p { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 0.9rem; font-weight: 300; }

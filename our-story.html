@@ -443,6 +443,71 @@ footer.ml { background:var(--ml-red-dark); }
   .brand-today-card { padding: 2rem 1.4rem; }
   .timeline-img { max-width: 100%; height: 200px; }
 }
+
+/* ═══ OUR STORY MOBILE ═══ */
+@media (max-width: 768px) {
+  /* Navbar fix */
+  nav { padding: 0.6rem 1rem !important; flex-wrap: nowrap; gap: 0.5rem; }
+  nav > div:first-child { gap: 0.8rem; }
+  nav > div:first-child img { height: 32px !important; }
+  nav > div:last-child { display: none; } /* hide desktop links */
+  .hamburger { display: flex !important; }
+
+  /* Hero */
+  .story-hero { min-height: 45vh; padding: 5.5rem 1.4rem 2.5rem; }
+  .story-hero-content h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+
+  /* Main layout: force single column */
+  .story-section-inner,
+  div[style*="grid-template-columns:1fr 2fr"],
+  div[style*="grid-template-columns: 1fr 2fr"] {
+    display: block !important;
+  }
+
+  /* Sticky sidebar → static */
+  div[style*="position:sticky"],
+  div[style*="position: sticky"] {
+    position: static !important;
+    top: auto !important;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(201,169,110,0.2);
+  }
+
+  /* Timeline */
+  .timeline { padding-left: 1.6rem !important; }
+  .timeline::before { left: 0 !important; }
+  .timeline-item::before { left: -1.95rem !important; width: 8px; height: 8px; }
+  .timeline-title { font-size: 1.1rem !important; }
+  .timeline-text { font-size: 0.95rem !important; }
+  .timeline-img { height: 180px !important; max-width: 100%; }
+
+  /* City photos 2-col grid → keep 2 col but smaller */
+  .timeline-item div[style*="grid-template-columns:1fr 1fr"] {
+    max-width: 100% !important;
+  }
+  .timeline-item div[style*="grid-template-columns:1fr 1fr"] img {
+    height: 120px !important;
+  }
+
+  /* Brands today section */
+  .brands-today { grid-template-columns: 1fr !important; }
+  .brand-today-card { padding: 1.8rem 1.4rem !important; }
+
+  /* Closing slogan */
+  .closing-slogan { font-size: clamp(1.6rem, 8vw, 3rem) !important; padding: 3rem 1.4rem !important; }
+  .closing-sub { padding-bottom: 2.5rem !important; font-size: 0.5rem !important; }
+
+  /* Press bar */
+  div[style*="display:flex;flex-wrap:wrap;gap:0.5rem 1.2rem"] {
+    gap: 0.4rem 0.8rem !important;
+    padding: 0.7rem !important;
+  }
+}
+
+@media (max-width:768px) {
+  nav > div:nth-child(2) { display:none!important; }
+}
 </style>
 </head>
 <body>
