@@ -4,11 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Locations – Mister Lasagna</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-@font-face {font-family:'Mastoc';src:url('../assets/mastoc.ttf') format('truetype');font-weight:normal;font-style:normal;}
 @font-face {
   font-family: 'Mastoc';
   src: url('../assets/mastoc.ttf') format('truetype');
@@ -356,84 +354,6 @@ footer.ml { background:var(--ml-red-dark); }
 }
 @media (max-width: 768px) {
   .hamburger { display: flex; }
-}
-
-/* ── MOBILE IMPROVEMENTS v2 ─────────────────────────────────────── */
-@media (max-width: 768px) {
-
-  /* Photo frames — no overflow, no border */
-  .photo-frame { padding:0!important; }
-  .photo-frame::before,.photo-frame.red-border::before { display:none!important; }
-  .photo-frame img { height:220px!important; width:100%; object-fit:cover; }
-
-  /* Two-col grid photo panel */
-  .two-col .photo-frame img { height:220px!important; }
-
-  /* Story grid sticky → static on mobile */
-  .story-grid > div:first-child { position:static!important; top:auto!important; }
-
-  /* Timeline on mobile */
-  .timeline { padding-left:1.5rem!important; }
-  .timeline-item::before { left:-1.9rem!important; }
-  .timeline-img { max-width:100%!important; height:180px!important; }
-
-  /* City photos grid */
-  .timeline-item div[style*="grid-template-columns:1fr 1fr"] {
-    grid-template-columns:1fr!important;
-  }
-
-  /* Menu hero */
-  .menu-hero-content { padding:1.2rem!important; }
-  .menu-hero-title { font-size:1.6rem!important; }
-
-  /* Locations page hero */
-  .locations-hero { padding:5.5rem 1.4rem 2rem!important; }
-  .loc-full-img { height:180px!important; }
-
-  /* Franchising */
-  .fr-hero { min-height:55vh!important; padding:5.5rem 1.4rem 2.5rem!important; }
-  .track-grid { grid-template-columns:repeat(2,1fr)!important; }
-  .invest-grid { grid-template-columns:1fr!important; }
-  .next-phase { grid-template-columns:1fr!important; gap:1.5rem!important; }
-  .formats-grid { grid-template-columns:1fr!important; }
-  .format-card { padding:1.8rem 1.4rem!important; }
-  .provides-grid { grid-template-columns:1fr!important; }
-  .fr-form .form-row { grid-template-columns:1fr!important; }
-  .usp-grid { grid-template-columns:1fr!important; }
-
-  /* Our Story two-col layout */
-  .two-col { grid-template-columns:1fr!important; gap:2rem!important; }
-
-  /* Locations cards */
-  .loc-full-grid { grid-template-columns:1fr!important; }
-  .loc-detail-inner { grid-template-columns:1fr!important; gap:1.5rem!important; }
-  .loc-detail-photo img { height:200px!important; }
-  .loc-detail-photo-grid img { height:130px!important; }
-  .loc-detail-section { padding:2.5rem 1.4rem!important; }
-
-  /* Secret garden photo grid */
-  .loc-detail-inner div[style*="grid-template-columns:1fr 1fr"] {
-    grid-template-columns:1fr 1fr!important;
-  }
-
-  /* Footer */
-  .footer-top { grid-template-columns:1fr!important; gap:1.5rem!important; }
-
-  /* Nav overflow fix */
-  nav { padding:0.7rem 1.2rem!important; }
-  .nav-links { display:none!important; }
-  .nav-switch { font-size:0.55rem!important; }
-
-  /* Buttons full width on mobile */
-  .hero-actions { flex-direction:column!important; gap:0.7rem!important; }
-  .hero-actions .btn { text-align:center!important; }
-}
-
-@media (max-width: 480px) {
-  .brand-card { height:180px!important; }
-  .slogan { font-size:clamp(1.8rem,9vw,3rem)!important; }
-  .track-grid { grid-template-columns:1fr 1fr!important; }
-  .menu-grid { grid-template-columns:1fr!important; }
 }
 
 </style>

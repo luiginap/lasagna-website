@@ -5,11 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Locations – Lasagneria Italiana & Mister Lasagna London</title>
 <meta name="description" content="Find us in Chelsea, Notting Hill and Leicester Square. Lasagneria Italiana and Mister Lasagna — authentic Italian food across London.">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-@font-face {font-family:'Mastoc';src:url('assets/mastoc.ttf') format('truetype');font-weight:normal;font-style:normal;}
+@font-face { font-family: 'Mastoc'; src: url('assets/mastoc.ttf') format('truetype'); }
 @font-face {
   font-family: 'Mastoc';
   src: url('assets/mastoc.ttf') format('truetype');
@@ -359,84 +358,121 @@ footer.ml { background:var(--ml-red-dark); }
   .hamburger { display: flex; }
 }
 
-/* ── MOBILE IMPROVEMENTS v2 ─────────────────────────────────────── */
+
+.locations-hero {
+  background: #0e0e0e; padding: 7rem 3rem 3.5rem; position: relative; overflow: hidden;
+}
+.locations-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(255,255,255,0.012) 60px, rgba(255,255,255,0.012) 61px);
+}
+.loc-full-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+  background: rgba(255,255,255,0.06);
+}
+.loc-full-card {
+  position: relative; overflow: hidden; text-decoration: none; display: block;
+}
+.loc-full-img {
+  width: 100%; height: 280px; object-fit: cover; display: block;
+  filter: brightness(0.7); transition: filter 0.4s, transform 0.5s;
+}
+.loc-full-card:hover .loc-full-img {
+  filter: brightness(0.55); transform: scale(1.03);
+}
+.loc-full-overlay {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 1.8rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 60%);
+}
+.loc-full-brand {
+  font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase;
+  margin-bottom: 0.3rem; font-family: 'Jost', sans-serif;
+}
+.loc-full-name {
+  font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400;
+  color: white; margin-bottom: 0.2rem;
+}
+.loc-full-addr {
+  font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.6);
+  font-family: 'Jost', sans-serif;
+}
+.loc-full-card.li-card .loc-full-brand { color: var(--gold); }
+.loc-full-card.ml-card .loc-full-brand { color: #ff9999; }
+.loc-full-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 2;
+}
+.loc-full-card.li-card::before { background: var(--gold); }
+.loc-full-card.ml-card::before { background: #cc3333; }
+
+.loc-detail-section { padding: 5rem 3rem; }
+.loc-detail-section:nth-child(odd) { background: var(--cream); }
+.loc-detail-section:nth-child(even) { background: var(--warm-white); }
+.loc-detail-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.loc-detail-inner.reverse { }
+.loc-detail-photo { position: relative; }
+.loc-detail-photo img { width: 100%; height: 380px; object-fit: cover; display: block; }
+.loc-detail-photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.loc-detail-photo-grid img { width: 100%; height: 188px; object-fit: cover; display: block; }
+.loc-accent-bar {
+  width: 40px; height: 3px; margin-bottom: 1.2rem;
+}
+.loc-accent-bar.gold { background: var(--gold); }
+.loc-accent-bar.red { background: #cc3333; }
+.loc-detail-name {
+  font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400;
+  color: var(--forest-dark); margin-bottom: 0.4rem;
+}
+.loc-detail-name.ml { color: var(--ml-red-dark); }
+.loc-info-row { display: flex; gap: 0.8rem; margin-bottom: 0.55rem; align-items: flex-start; }
+.loc-info-key {
+  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--text-light); min-width: 60px; padding-top: 2px; font-family: 'Jost', sans-serif;
+}
+.loc-info-val {
+  font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--text-mid); line-height: 1.5;
+}
+.loc-hours-grid {
+  display: grid; grid-template-columns: auto 1fr; gap: 0.3rem 1rem;
+  margin: 1.2rem 0 1.5rem;
+}
+.loc-hours-day {
+  font-size: 0.72rem; color: var(--text-light); font-family: 'Jost', sans-serif;
+}
+.loc-hours-time {
+  font-size: 0.72rem; color: var(--text-dark); font-family: 'Jost', sans-serif; font-weight: 500;
+}
+.loc-action-row { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.loc-feature-tag {
+  display: inline-block; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 0.25rem 0.7rem; margin-bottom: 1rem; margin-right: 0.4rem;
+}
+.loc-feature-tag.gold { background: rgba(201,169,110,0.1); color: var(--gold); }
+.loc-feature-tag.green { background: rgba(43,74,58,0.08); color: var(--forest); }
+.loc-feature-tag.red { background: rgba(204,51,51,0.08); color: #cc3333; }
+
+.secret-garden-box {
+  background: var(--forest-dark); padding: 2rem; margin-top: 1.5rem;
+  border-left: 3px solid var(--gold);
+}
+.secret-garden-box h4 {
+  font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400;
+  color: var(--gold); margin-bottom: 0.5rem; font-style: italic;
+}
+.secret-garden-box p {
+  font-family: 'Cormorant Garamond', serif; font-size: 0.95rem;
+  color: rgba(255,255,255,0.55); line-height: 1.6; font-weight: 300;
+}
+
 @media (max-width: 768px) {
-
-  /* Photo frames — no overflow, no border */
-  .photo-frame { padding:0!important; }
-  .photo-frame::before,.photo-frame.red-border::before { display:none!important; }
-  .photo-frame img { height:220px!important; width:100%; object-fit:cover; }
-
-  /* Two-col grid photo panel */
-  .two-col .photo-frame img { height:220px!important; }
-
-  /* Story grid sticky → static on mobile */
-  .story-grid > div:first-child { position:static!important; top:auto!important; }
-
-  /* Timeline on mobile */
-  .timeline { padding-left:1.5rem!important; }
-  .timeline-item::before { left:-1.9rem!important; }
-  .timeline-img { max-width:100%!important; height:180px!important; }
-
-  /* City photos grid */
-  .timeline-item div[style*="grid-template-columns:1fr 1fr"] {
-    grid-template-columns:1fr!important;
-  }
-
-  /* Menu hero */
-  .menu-hero-content { padding:1.2rem!important; }
-  .menu-hero-title { font-size:1.6rem!important; }
-
-  /* Locations page hero */
-  .locations-hero { padding:5.5rem 1.4rem 2rem!important; }
-  .loc-full-img { height:180px!important; }
-
-  /* Franchising */
-  .fr-hero { min-height:55vh!important; padding:5.5rem 1.4rem 2.5rem!important; }
-  .track-grid { grid-template-columns:repeat(2,1fr)!important; }
-  .invest-grid { grid-template-columns:1fr!important; }
-  .next-phase { grid-template-columns:1fr!important; gap:1.5rem!important; }
-  .formats-grid { grid-template-columns:1fr!important; }
-  .format-card { padding:1.8rem 1.4rem!important; }
-  .provides-grid { grid-template-columns:1fr!important; }
-  .fr-form .form-row { grid-template-columns:1fr!important; }
-  .usp-grid { grid-template-columns:1fr!important; }
-
-  /* Our Story two-col layout */
-  .two-col { grid-template-columns:1fr!important; gap:2rem!important; }
-
-  /* Locations cards */
-  .loc-full-grid { grid-template-columns:1fr!important; }
-  .loc-detail-inner { grid-template-columns:1fr!important; gap:1.5rem!important; }
-  .loc-detail-photo img { height:200px!important; }
-  .loc-detail-photo-grid img { height:130px!important; }
-  .loc-detail-section { padding:2.5rem 1.4rem!important; }
-
-  /* Secret garden photo grid */
-  .loc-detail-inner div[style*="grid-template-columns:1fr 1fr"] {
-    grid-template-columns:1fr 1fr!important;
-  }
-
-  /* Footer */
-  .footer-top { grid-template-columns:1fr!important; gap:1.5rem!important; }
-
-  /* Nav overflow fix */
-  nav { padding:0.7rem 1.2rem!important; }
-  .nav-links { display:none!important; }
-  .nav-switch { font-size:0.55rem!important; }
-
-  /* Buttons full width on mobile */
-  .hero-actions { flex-direction:column!important; gap:0.7rem!important; }
-  .hero-actions .btn { text-align:center!important; }
+  .loc-full-grid { grid-template-columns: 1fr; }
+  .loc-full-img { height: 200px; }
+  .loc-detail-section { padding: 3rem 1.4rem; }
+  .loc-detail-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .loc-detail-photo img { height: 240px; }
+  .loc-detail-photo-grid img { height: 120px; }
+  .locations-hero { padding: 6rem 1.4rem 2.5rem; }
 }
-
-@media (max-width: 480px) {
-  .brand-card { height:180px!important; }
-  .slogan { font-size:clamp(1.8rem,9vw,3rem)!important; }
-  .track-grid { grid-template-columns:1fr 1fr!important; }
-  .menu-grid { grid-template-columns:1fr!important; }
-}
-
 </style>
 </head>
 <body>
