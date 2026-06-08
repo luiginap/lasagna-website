@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Host = ["lasagneriaitaliana.co.uk", "www.lasagneriaitaliana.co.uk", "misterlasagna.co.uk", "www.misterlasagna.co.uk"]}

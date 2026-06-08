@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Franchising & Investment – Lasagneria Italiana & Mister Lasagna</title>
+<meta name="description" content="Franchise or invest in Lasagneria Italiana and Mister Lasagna — two proven Italian food concepts built over 10 years in London.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+@font-face {font-family:'Mastoc';src:url('assets/mastoc.ttf') format('truetype');font-weight:normal;font-style:normal;}
+@font-face {
+  font-family: 'Mastoc';
+  src: url('assets/mastoc.ttf') format('truetype');
+  font-weight: normal; font-style: normal;
+}
+
+:root {
+  --forest: #2B4A3A;
+  --forest-dark: #1C3228;
+  --forest-light: #3D6B55;
+  --gold: #C9A96E;
+  --gold-light: #E8C98A;
+  --cream: #FAF6EF;
+  --warm-white: #FDF9F3;
+  --ml-red: #8B1A1A;
+  --ml-red-dark: #5C0E0E;
+  --text-dark: #1A1A1A;
+  --text-mid: #4A4A4A;
+  --text-light: #7A7A7A;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Jost',sans-serif; background:var(--cream); color:var(--text-dark); overflow-x:hidden; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0.85rem 3rem; backdrop-filter:blur(8px); border-bottom:1px solid rgba(255,255,255,0.08); }
+nav.li-nav { background:rgba(28,50,40,0.97); }
+nav.ml-nav { background:rgba(80,10,10,0.97); }
+.nav-logo img { height:48px; width:auto; }
+.nav-links { display:flex; gap:2rem; list-style:none; align-items:center; }
+.nav-links a { color:rgba(255,255,255,0.72); text-decoration:none; font-size:0.73rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:400; transition:color 0.2s; }
+.nav-links a:hover { color:var(--gold); }
+.nav-links a.ml { color:rgba(255,255,255,0.72); }
+.nav-links a.ml:hover { color:#ffb3b3; }
+.nav-cta { padding:0.5rem 1.2rem; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:500; cursor:pointer; border:none; font-family:'Jost',sans-serif; text-decoration:none; transition:background 0.2s; }
+.nav-cta.li { background:var(--gold); color:var(--forest-dark); }
+.nav-cta.li:hover { background:var(--gold-light); }
+.nav-cta.ml { background:#cc3333; color:white; }
+.nav-cta.ml:hover { background:#dd4444; }
+.nav-switch { font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.3); text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.15); padding-bottom:0.1rem; transition:color 0.2s; }
+.nav-switch:hover { color:rgba(255,255,255,0.7); }
+
+/* HERO */
+.hero { min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; padding:6rem 4rem 3rem; }
+.hero-bg { position:absolute; inset:0; background-size:cover; background-position:center; filter:brightness(0.32) saturate(0.8); }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 65%, rgba(0,0,0,0) 100%); }
+.hero-content { position:relative; z-index:2; max-width:620px; }
+.hero-eyebrow { font-size:0.68rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--gold); margin-bottom:1.2rem; display:flex; align-items:center; gap:0.8rem; }
+.hero-eyebrow::before { content:''; display:inline-block; width:28px; height:1px; background:var(--gold); }
+.hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2.8rem,5.5vw,5rem); line-height:1.08; color:#FDF9F3; font-weight:400; margin-bottom:0.9rem; }
+.hero h1 em { font-style:italic; }
+.hero-sub { font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:rgba(255,255,255,0.5); font-weight:300; margin-bottom:2rem; line-height:1.7; font-style:italic; max-width:460px; }
+.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; }
+.btn { display:inline-block; text-decoration:none; font-family:'Jost',sans-serif; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.8rem 1.8rem; cursor:pointer; border:none; transition:all 0.2s; font-weight:400; }
+.btn-gold { background:var(--gold); color:var(--forest-dark); font-weight:500; }
+.btn-gold:hover { background:var(--gold-light); }
+.btn-red { background:#cc3333; color:white; font-weight:500; }
+.btn-red:hover { background:#dd4444; }
+.btn-ghost { background:transparent; color:rgba(255,255,255,0.8); border:1px solid rgba(255,255,255,0.22); }
+.btn-ghost:hover { border-color:var(--gold); color:var(--gold); }
+
+/* STRIP */
+.strip { padding:0.85rem 3rem; display:flex; align-items:center; justify-content:center; gap:2.5rem; overflow:hidden; flex-wrap:wrap; }
+.strip.gold { background:var(--gold); }
+.strip.red { background:#cc3333; }
+.strip-item { font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; font-weight:500; white-space:nowrap; }
+.strip.gold .strip-item { color:var(--forest-dark); }
+.strip.red .strip-item { color:rgba(255,255,255,0.9); }
+.strip-dot { width:3px; height:3px; border-radius:50%; flex-shrink:0; opacity:0.4; }
+.strip.gold .strip-dot { background:var(--forest-dark); }
+.strip.red .strip-dot { background:rgba(255,255,255,0.8); }
+
+/* SECTIONS */
+.section { padding:6rem 3rem; }
+.section-inner { max-width:1100px; margin:0 auto; }
+.section-dark { background:var(--forest-dark); }
+.section-red-dark { background:var(--ml-red-dark); }
+.section-cream { background:var(--cream); }
+.section-warm { background:var(--warm-white); }
+.section-label { font-size:0.66rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--gold); margin-bottom:1rem; font-weight:500; }
+.section-label.red { color:#ff9999; }
+h2.section-title { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,3vw,2.8rem); line-height:1.2; font-weight:400; margin-bottom:1.8rem; }
+h2.section-title.light { color:var(--warm-white); }
+h2.section-title.dark { color:var(--forest-dark); }
+h2.section-title em { font-style:italic; color:var(--gold); }
+h2.section-title em.red { color:#ff9999; }
+
+/* TWO-COL */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.prose p { font-family:'Cormorant Garamond',serif; font-size:1.1rem; line-height:1.8; color:var(--text-mid); margin-bottom:1rem; font-weight:300; }
+.prose p.light { color:rgba(255,255,255,0.55); }
+.stats { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2rem; padding-top:2rem; border-top:1px solid rgba(201,169,110,0.2); }
+.stat-num { font-family:'Playfair Display',serif; font-size:2.2rem; color:var(--forest); font-weight:400; display:block; }
+.stat-num.gold { color:var(--gold); }
+.stat-label { font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-light); margin-top:0.2rem; }
+.stat-label.muted { color:rgba(255,255,255,0.35); }
+
+/* PHOTO FRAME */
+.photo-frame { position:relative; padding:1.2rem 0 0 1.2rem; }
+.photo-frame::before { content:''; position:absolute; top:0; left:0; width:70%; height:80%; border:1px solid var(--gold); }
+.photo-frame img { width:100%; height:440px; object-fit:cover; position:relative; z-index:1; display:block; }
+.photo-frame.red-border::before { border-color:#cc3333; }
+
+/* MENU GRID */
+.menu-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:rgba(255,255,255,0.06); }
+.menu-card { background:rgba(255,255,255,0.04); padding:1.8rem 1.5rem; transition:background 0.3s; }
+.menu-card:hover { background:rgba(255,255,255,0.09); }
+.menu-tag { font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:0.6rem; }
+.menu-tag.red { color:#ff9999; }
+.menu-card h3 { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--warm-white); font-weight:400; margin-bottom:0.4rem; }
+.menu-card p { font-family:'Cormorant Garamond',serif; font-size:0.88rem; color:rgba(255,255,255,0.38); line-height:1.5; margin-bottom:0.9rem; }
+.menu-price { font-size:0.82rem; color:var(--gold); }
+.menu-price.red { color:#ffb3b3; }
+
+/* LOCATION CARDS */
+.loc-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(201,169,110,0.15); }
+.loc-card { background:var(--warm-white); padding:2.5rem 2rem; position:relative; }
+.loc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; }
+.loc-card.li::before { background:var(--forest); }
+.loc-card.ml::before { background:#cc3333; }
+.loc-name { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--forest-dark); font-weight:400; margin-bottom:0.3rem; }
+.loc-badge { display:inline-block; font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; padding:0.22rem 0.65rem; margin-bottom:1.2rem; }
+.loc-badge.open { background:rgba(43,74,58,0.08); color:var(--forest); }
+.loc-badge.new { background:rgba(201,169,110,0.1); color:var(--gold); }
+.loc-badge.soon { background:rgba(255,200,50,0.1); color:#b07d00; }
+.loc-row { display:flex; gap:0.75rem; margin-bottom:0.5rem; align-items:flex-start; }
+.loc-key { font-size:0.62rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-light); min-width:52px; padding-top:2px; }
+.loc-val { font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--text-mid); line-height:1.5; }
+.loc-actions { display:flex; gap:0.75rem; margin-top:1.6rem; flex-wrap:wrap; }
+.btn-sm { display:inline-block; text-decoration:none; font-family:'Jost',sans-serif; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.52rem 1rem; border:1px solid; transition:all 0.2s; font-weight:400; cursor:pointer; }
+.btn-sm.forest { background:var(--forest); color:white; border-color:var(--forest); }
+.btn-sm.forest:hover { background:var(--forest-light); border-color:var(--forest-light); }
+.btn-sm.outline-forest { background:transparent; color:var(--forest); border-color:var(--forest); }
+.btn-sm.outline-forest:hover { background:rgba(43,74,58,0.05); }
+.btn-sm.red-solid { background:#cc3333; color:white; border-color:#cc3333; }
+.btn-sm.red-solid:hover { background:#dd4444; border-color:#dd4444; }
+.btn-sm.outline-red { background:transparent; color:#cc3333; border-color:#cc3333; }
+.btn-sm.outline-red:hover { background:rgba(204,51,51,0.05); }
+
+/* DELIVERY STRIP */
+.delivery-bar { padding:2rem 3rem; display:flex; align-items:center; justify-content:center; }
+.delivery-bar.li { background:var(--forest); }
+.delivery-bar.ml { background:#cc3333; }
+.delivery-inner { max-width:1100px; width:100%; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+.delivery-bar h3 { font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:400; color:white; margin-bottom:0.2rem; }
+.delivery-bar p { font-size:0.75rem; color:rgba(255,255,255,0.5); }
+.delivery-platforms { display:flex; gap:0.75rem; flex-wrap:wrap; }
+.delivery-btn { background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); color:white; padding:0.52rem 1rem; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; text-decoration:none; font-family:'Jost',sans-serif; transition:background 0.2s; }
+.delivery-btn:hover { background:rgba(255,255,255,0.18); }
+
+/* FOOTER */
+footer { padding:3rem 3rem 2rem; }
+footer.li { background:var(--forest-dark); }
+footer.ml { background:var(--ml-red-dark); }
+.footer-inner { max-width:1100px; margin:0 auto; }
+.footer-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:2.5rem; padding-bottom:2rem; border-bottom:1px solid rgba(255,255,255,0.08); }
+.footer-logo img { height:50px; width:auto; margin-bottom:0.8rem; }
+.footer-tagline { font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:rgba(255,255,255,0.3); font-style:italic; line-height:1.6; }
+.footer-col h4 { font-size:0.62rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:0.9rem; font-weight:500; }
+.footer-col h4.red { color:#ff9999; }
+.footer-col a, .footer-col p { display:block; font-size:0.8rem; color:rgba(255,255,255,0.42); margin-bottom:0.42rem; text-decoration:none; transition:color 0.2s; }
+.footer-col a:hover { color:rgba(255,255,255,0.8); }
+.footer-bottom { display:flex; align-items:center; justify-content:space-between; padding-top:1.6rem; flex-wrap:wrap; gap:1rem; }
+.footer-copy { font-size:0.65rem; color:rgba(255,255,255,0.18); letter-spacing:0.05em; }
+.footer-slogan { font-family:'Mastoc',cursive; font-size:1.1rem; color:rgba(201,169,110,0.28); }
+.footer-slogan.ml { color:rgba(255,100,100,0.28); }
+.social-links { display:flex; gap:1.2rem; }
+.social-link { display:flex; align-items:center; gap:0.4rem; color:rgba(255,255,255,0.35); text-decoration:none; font-size:0.7rem; transition:color 0.2s; }
+.social-link:hover { color:var(--gold); }
+.social-link svg { width:13px; height:13px; fill:currentColor; }
+
+/* Logo visibility fixes for dark backgrounds */
+.card-ml .brand-logo,
+.ml-nav .nav-logo img,
+.footer-logo img { filter: brightness(1.1); }
+.card-li .brand-logo { filter: brightness(1.05); }
+
+/* ═══════════════════════════════════════════
+   MOBILE RESPONSIVE — max-width 768px
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* NAV */
+  nav { padding: 0.7rem 1.2rem; flex-wrap: wrap; gap: 0.5rem; }
+  .nav-logo img { height: 38px; }
+  .nav-links { display: none; } /* replaced by hamburger menu */
+  .nav-cta { padding: 0.45rem 0.9rem; font-size: 0.65rem; }
+  .nav-switch { font-size: 0.55rem; }
+
+  /* HERO */
+  .hero { padding: 5rem 1.4rem 2.5rem; min-height: 90vh; }
+  .hero h1 { font-size: clamp(2.2rem, 9vw, 3.2rem); }
+  .hero-sub { font-size: 1rem; }
+  .hero-eyebrow { font-size: 0.6rem; }
+  .hero-actions { flex-direction: column; gap: 0.7rem; }
+  .hero-actions .btn { text-align: center; }
+
+  /* STRIP */
+  .strip { padding: 0.8rem 1rem; gap: 1rem; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
+  .strip-item { font-size: 0.6rem; }
+  .strip-dot { display: none; }
+
+  /* SECTIONS */
+  .section { padding: 3.5rem 1.4rem; }
+  .section-inner { max-width: 100%; }
+
+  /* TWO COLUMN → SINGLE */
+  .two-col { grid-template-columns: 1fr; gap: 2.5rem; }
+  .two-col > *:first-child { order: 2; }
+  .two-col > *:last-child { order: 1; }
+
+  /* PHOTO FRAME */
+  .photo-frame { padding: 0.8rem 0 0 0.8rem; }
+  .photo-frame img { height: 260px; }
+  .photo-frame::before { width: 65%; height: 75%; }
+
+  /* STATS */
+  .stats { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .stat-num { font-size: 1.8rem; }
+
+  /* MENU GRID → single column */
+  .menu-grid { grid-template-columns: 1fr; }
+  .menu-card { padding: 1.3rem 1.2rem; }
+  .menu-card h3 { font-size: 1.1rem; }
+
+  /* LOCATIONS */
+  .loc-grid { grid-template-columns: 1fr; }
+  .loc-card { padding: 1.8rem 1.4rem; }
+  .loc-name { font-size: 1.3rem; }
+  .loc-actions { flex-wrap: wrap; }
+  .btn-sm { font-size: 0.65rem; padding: 0.5rem 0.9rem; }
+
+  /* DELIVERY BAR */
+  .delivery-bar { padding: 1.5rem 1.4rem; }
+  .delivery-inner { flex-direction: column; gap: 1rem; }
+  .delivery-bar h3 { font-size: 1.1rem; }
+  .delivery-platforms { flex-wrap: wrap; gap: 0.5rem; }
+  .delivery-btn { font-size: 0.65rem; padding: 0.45rem 0.9rem; }
+
+  /* FOOTER */
+  footer { padding: 2.5rem 1.4rem 1.5rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 1.8rem; }
+  .footer-logo img { height: 42px; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+  /* SECTION TITLES */
+  h2.section-title { font-size: clamp(1.5rem, 5.5vw, 2rem); }
+  .section-label { font-size: 0.6rem; }
+
+  /* BUTTONS */
+  .btn { padding: 0.7rem 1.4rem; font-size: 0.72rem; }
+}
+
+/* ═══════════════════════════════════════════
+   SPLASH PAGE MOBILE
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Top logos */
+  .top-logos { gap: 1.2rem; margin-bottom: 1.5rem; }
+  .top-logo-li { height: 40px; }
+  .top-logo-ml { height: 34px; }
+  .top-divider { height: 34px; }
+
+  /* Slogan */
+  .slogan { font-size: clamp(2rem, 10vw, 3.5rem); margin-bottom: 0.4rem; }
+  .slogan-sub { font-size: 0.5rem; letter-spacing: 0.3em; margin-bottom: 1.8rem; }
+  .divider { width: 60px; margin-bottom: 1.8rem; }
+
+  /* Brand cards — stack vertically on mobile */
+  .brands { flex-direction: column; gap: 2px; max-width: 100%; }
+  .brand-card { height: 200px; flex: none !important; width: 100%; }
+  .brand-card:hover { flex: none !important; }
+  .brand-logo { height: 60px; }
+  .brand-label { font-size: 0.5rem; }
+  .brand-tagline { font-size: 0.78rem; max-width: 280px; }
+  .brand-loc { font-size: 0.5rem; }
+  .brand-cta { opacity: 1 !important; font-size: 0.56rem; } /* always visible on mobile */
+
+  .splash-footer { margin-top: 1.5rem; font-size: 0.46rem; }
+}
+
+/* ═══════════════════════════════════════════
+   MENU PAGE MOBILE
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .menu-page-hero { padding: 5.5rem 1.4rem 2.5rem; }
+  .menu-category { padding: 2.5rem 1.4rem; }
+  .dish-grid { grid-template-columns: 1fr; }
+  .dish-col { padding: 0 !important; border-left: none !important; }
+  .dish-col + .dish-col { border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.5rem !important; margin-top: 0.5rem; }
+  .cat-header { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+  .cat-header h2 { font-size: 1.5rem; }
+}
+
+/* ═══════════════════════════════════════════
+   HAMBURGER MENU (mobile nav)
+═══════════════════════════════════════════ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.7);
+  transition: all 0.3s;
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 200;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.mobile-menu.li-bg { background: rgba(28,50,40,0.98); }
+.mobile-menu.ml-bg { background: rgba(80,10,10,0.98); }
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 1.5rem;
+  font-family: 'Playfair Display', serif;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu-close {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  background: none; border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+}
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+}
+
+/* ── MOBILE IMPROVEMENTS v2 ─────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Photo frames — no overflow, no border */
+  .photo-frame { padding:0!important; }
+  .photo-frame::before,.photo-frame.red-border::before { display:none!important; }
+  .photo-frame img { height:220px!important; width:100%; object-fit:cover; }
+
+  /* Two-col grid photo panel */
+  .two-col .photo-frame img { height:220px!important; }
+
+  /* Story grid sticky → static on mobile */
+  .story-grid > div:first-child { position:static!important; top:auto!important; }
+
+  /* Timeline on mobile */
+  .timeline { padding-left:1.5rem!important; }
+  .timeline-item::before { left:-1.9rem!important; }
+  .timeline-img { max-width:100%!important; height:180px!important; }
+
+  /* City photos grid */
+  .timeline-item div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns:1fr!important;
+  }
+
+  /* Menu hero */
+  .menu-hero-content { padding:1.2rem!important; }
+  .menu-hero-title { font-size:1.6rem!important; }
+
+  /* Locations page hero */
+  .locations-hero { padding:5.5rem 1.4rem 2rem!important; }
+  .loc-full-img { height:180px!important; }
+
+  /* Franchising */
+  .fr-hero { min-height:55vh!important; padding:5.5rem 1.4rem 2.5rem!important; }
+  .track-grid { grid-template-columns:repeat(2,1fr)!important; }
+  .invest-grid { grid-template-columns:1fr!important; }
+  .next-phase { grid-template-columns:1fr!important; gap:1.5rem!important; }
+  .formats-grid { grid-template-columns:1fr!important; }
+  .format-card { padding:1.8rem 1.4rem!important; }
+  .provides-grid { grid-template-columns:1fr!important; }
+  .fr-form .form-row { grid-template-columns:1fr!important; }
+  .usp-grid { grid-template-columns:1fr!important; }
+
+  /* Our Story two-col layout */
+  .two-col { grid-template-columns:1fr!important; gap:2rem!important; }
+
+  /* Locations cards */
+  .loc-full-grid { grid-template-columns:1fr!important; }
+  .loc-detail-inner { grid-template-columns:1fr!important; gap:1.5rem!important; }
+  .loc-detail-photo img { height:200px!important; }
+  .loc-detail-photo-grid img { height:130px!important; }
+  .loc-detail-section { padding:2.5rem 1.4rem!important; }
+
+  /* Secret garden photo grid */
+  .loc-detail-inner div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns:1fr 1fr!important;
+  }
+
+  /* Footer */
+  .footer-top { grid-template-columns:1fr!important; gap:1.5rem!important; }
+
+  /* Nav overflow fix */
+  nav { padding:0.7rem 1.2rem!important; }
+  .nav-links { display:none!important; }
+  .nav-switch { font-size:0.55rem!important; }
+
+  /* Buttons full width on mobile */
+  .hero-actions { flex-direction:column!important; gap:0.7rem!important; }
+  .hero-actions .btn { text-align:center!important; }
+}
+
+@media (max-width: 480px) {
+  .brand-card { height:180px!important; }
+  .slogan { font-size:clamp(1.8rem,9vw,3rem)!important; }
+  .track-grid { grid-template-columns:1fr 1fr!important; }
+  .menu-grid { grid-template-columns:1fr!important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav style="position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0.85rem 3rem;background:rgba(18,18,18,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.06);">
+  <div style="display:flex;align-items:center;gap:2rem;">
+    <a href="lasagneria/index.html"><img src="assets/li_logo.png" alt="Lasagneria Italiana" style="height:44px;width:auto;filter:brightness(1.1);"></a>
+    <span style="color:rgba(255,255,255,0.15);">·</span>
+    <a href="mister/index.html"><img src="assets/ml_logo.svg" alt="Mister Lasagna" style="height:38px;width:auto;"></a>
+  </div>
+  <div style="display:flex;gap:2rem;align-items:center;">
+    <a href="our-story.html" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;font-family:'Jost',sans-serif;">Our Story</a>
+    <a href="locations.html" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;font-family:'Jost',sans-serif;">Locations</a>
+    <a href="index.html" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;font-family:'Jost',sans-serif;">&#8592; Home</a>
+  </div>
+  <button class="hamburger" onclick="document.getElementById('frMob').classList.add('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+  <div class="mobile-menu" style="background:rgba(10,10,10,0.98);" id="frMob">
+    <button class="mobile-menu-close" onclick="document.getElementById('frMob').classList.remove('open')">✕</button>
+    <a href="#franchise">Franchise</a>
+    <a href="#invest">Invest</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="locations.html">Locations</a>
+    <a href="index.html">&#8592; Home</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="fr-hero">
+  <div class="fr-hero-bg">
+    <img src="assets/food_015.jpg" alt="Lasagneria Italiana">
+  </div>
+  <div class="fr-hero-content">
+    <div style="font-size:0.68rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem;font-family:'Jost',sans-serif;"><span style="display:inline-block;width:28px;height:1px;background:var(--gold);"></span>Franchising & Investment</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.08;color:#FDF9F3;font-weight:400;margin-bottom:0.9rem;">We're not building<br>a restaurant.<br><em style="color:var(--gold);font-style:italic;">We're building a platform.</em></h1>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,0.45);font-weight:300;line-height:1.7;font-style:italic;max-width:520px;">10 years. Two formats. One system. Now ready to scale.</p>
+  </div>
+</section>
+
+<!-- ANCHOR NAV -->
+<div class="anchor-nav">
+  <a href="#franchise" class="anchor-btn gold">Franchise Opportunity</a>
+  <a href="#invest" class="anchor-btn red">Investment Opportunity</a>
+</div>
+
+<!-- ════════════════════════════════
+     SECTION A — FRANCHISE
+════════════════════════════════ -->
+<section id="franchise" style="padding:6rem 3rem;background:var(--cream);">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div class="section-divider gold">
+      <span class="divider-label gold">A</span>
+      <span class="divider-line gold"></span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:400;color:var(--forest-dark);">Franchise <em style="font-style:italic;color:var(--gold);">Opportunity</em></span>
+      <span class="divider-line gold"></span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-bottom:5rem;align-items:start;">
+      <div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:var(--forest-dark);line-height:1.2;margin-bottom:1.5rem;">Bring Italy<br><em style="font-style:italic;color:var(--gold);">to your city.</em></h2>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.08rem;line-height:1.85;color:var(--text-mid);">
+          <p style="margin-bottom:1rem;">We didn't invent Italian food. We perfected a format.</p>
+          <p style="margin-bottom:1rem;">Over 10 years operating in London's most competitive locations — Soho, Piccadilly, Belgravia, Leicester Square — we've built something most food concepts never achieve: a system that works without the founder in the room.</p>
+          <p>Standardised recipes. Codified procedures. A structured operational manual covering every role, every process, every standard. You don't need to figure out how to make it work. We already did.</p>
+        </div>
+      </div>
+      <div>
+        <div class="usp-grid" style="grid-template-columns:1fr 1fr;">
+          <div class="usp-card"><span class="usp-icon">🍝</span><div class="usp-title">Unique product</div><div class="usp-desc">Authentic lasagna — iconic, not yet overexposed, culturally universal.</div></div>
+          <div class="usp-card"><span class="usp-icon">⚡</span><div class="usp-title">Simple setup</div><div class="usp-desc">Smart processes, easy to prepare. No highly experienced kitchen staff required.</div></div>
+          <div class="usp-card"><span class="usp-icon">📦</span><div class="usp-title">Delivery-ready</div><div class="usp-desc">Lasagna travels beautifully. Strong dine-in, takeaway and delivery revenue.</div></div>
+          <div class="usp-card"><span class="usp-icon">👥</span><div class="usp-title">Broad appeal</div><div class="usp-desc">Meaty, vegetarian, vegan, gluten-friendly. All-day offering. Wide demographic.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TWO FORMATS -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:400;color:var(--forest-dark);margin-bottom:1.5rem;">Two formats. <em style="font-style:italic;color:var(--gold);">One family.</em></h3>
+    <div class="formats-grid" style="margin-bottom:4rem;">
+      <div class="format-card fc-li">
+        <img src="assets/li_logo.png" class="format-logo" alt="Lasagneria Italiana" style="filter:brightness(1.1);">
+        <span class="format-tag">Premium Casual · Experiential</span>
+        <div class="format-desc">Table service. Full menu. Two-floor venues. The complete Italian dining experience. Ideal for high-street locations with 50m²+ guest area.</div>
+        <ul class="format-list">
+          <li>Full sit-down dining & table service</li>
+          <li>Complete menu — lasagna, pasta, starters, desserts</li>
+          <li>Two-floor venue concept</li>
+          <li>Private events & Secret Garden (Notting Hill)</li>
+          <li>Strong delivery & takeaway revenue</li>
+        </ul>
+      </div>
+      <div class="format-card fc-ml">
+        <img src="assets/ml_logo.svg" class="format-logo" alt="Mister Lasagna">
+        <span class="format-tag">Fast Casual · High Rotation</span>
+        <div class="format-desc">Counter service. High footfall locations. Low CAPEX. Perfect for food halls, transport hubs, high streets. Proven at Leicester Square.</div>
+        <ul class="format-list">
+          <li>Counter service, fast casual</li>
+          <li>Core lasagna & pasta menu</li>
+          <li>Compact footprint, low overheads</li>
+          <li>Ideal for food halls & high footfall</li>
+          <li>All-day offering</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WHAT WE PROVIDE -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:400;color:var(--forest-dark);margin-bottom:2rem;">What we <em style="font-style:italic;color:var(--gold);">provide.</em></h3>
+    <div class="provides-grid" style="margin-bottom:4rem;">
+      <div>
+        <div class="provide-item"><span class="provide-icon">📋</span><div class="provide-text"><h4>Operational Manual</h4><p>Complete manual covering identity, service standards, kitchen procedures and role responsibilities — built across 10 years of real operations.</p></div></div>
+        <div class="provide-item"><span class="provide-icon">🍳</span><div class="provide-text"><h4>Codified Recipes</h4><p>Precise quantities, replicable procedures, systematic quality control. The product is consistent whether it comes out of Chelsea or Leicester Square.</p></div></div>
+        <div class="provide-item"><span class="provide-icon">👨‍🍳</span><div class="provide-text"><h4>Training & Onboarding</h4><p>Structured training programme for every role. Cross-training built in. Staff rotation between units to maintain uniformity.</p></div></div>
+      </div>
+      <div>
+        <div class="provide-item"><span class="provide-icon">🎨</span><div class="provide-text"><h4>Marketing & Store Design</h4><p>Field-tested marketing support and professional store design — tailored to your location and format.</p></div></div>
+        <div class="provide-item"><span class="provide-icon">🏗️</span><div class="provide-text"><h4>Technical Consulting</h4><p>Architectural and technical project consulting included — from layout planning to equipment specification.</p></div></div>
+        <div class="provide-item"><span class="provide-icon">🌍</span><div class="provide-text"><h4>UK Priority · Europe Open</h4><p>Primary focus on UK franchise partners. Master franchise arrangements available for other countries and geographically close European regions.</p></div></div>
+      </div>
+    </div>
+
+    <!-- FRANCHISE FORM -->
+    <div style="background:var(--forest-dark);padding:4rem 3rem;">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <div style="font-size:0.66rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:0.8rem;font-family:'Jost',sans-serif;">Franchise Enquiry</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:white;">Let's talk <em style="color:var(--gold);font-style:italic;">lasagna.</em></h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(255,255,255,0.4);font-style:italic;max-width:500px;margin:0.8rem auto 0;">Tell us about yourself, your location and your project. No numbers on this page — we sit down and talk first.</p>
+      </div>
+      <div class="fr-form">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" id="fr_name" placeholder="Your name"></div>
+          <div class="form-group"><label>Last Name</label><input type="text" id="fr_surname" placeholder="Your surname"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Email</label><input type="email" id="fr_email" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Phone</label><input type="tel" id="fr_phone" placeholder="+44..."></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Interested in</label><select id="fr_format"><option value="">Select a format</option><option>Lasagneria Italiana</option><option>Mister Lasagna</option><option>Both formats</option><option>Master Franchise</option></select></div>
+          <div class="form-group"><label>Location / City</label><input type="text" id="fr_location" placeholder="Where are you based?"></div>
+        </div>
+        <div class="form-group"><label>Tell us about your project</label><textarea id="fr_message" placeholder="Background, experience, location in mind..."></textarea></div>
+        <button class="form-submit-gold" onclick="submitForm('franchise')">Send Franchise Enquiry</button>
+        <div class="form-success" id="fr_success"><p>Thank you — we'll be in touch soon.</p></div>
+        <p class="form-note">Sent to infolasagneriaitaliana@gmail.com · We respond within 48 hours</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════
+     SECTION B — INVESTMENT
+════════════════════════════════ -->
+<section id="invest" style="padding:6rem 3rem;background:#0e0e0e;">
+  <div style="max-width:1100px;margin:0 auto;">
+
+    <div class="section-divider red" style="border-bottom-color:rgba(204,51,51,0.2);">
+      <span class="divider-label red">B</span>
+      <span class="divider-line red"></span>
+      <span style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:400;color:white;">Investment <em style="font-style:italic;color:#ff9999;">Opportunity</em></span>
+      <span class="divider-line red"></span>
+    </div>
+
+    <!-- TRACK RECORD -->
+    <div class="track-grid" style="margin-bottom:4rem;">
+      <div class="track-card"><span class="track-num">10</span><span class="track-label">Years in London</span></div>
+      <div class="track-card"><span class="track-num">2</span><span class="track-label">Proven Formats</span></div>
+      <div class="track-card"><span class="track-num">2</span><span class="track-label">Countries</span></div>
+      <div class="track-card"><span class="track-num">Now</span><span class="track-label">Acceleration Phase</span></div>
+    </div>
+
+
+    <!-- PRESS COVERAGE -->
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);padding:2rem 3rem;margin-top:3rem;">
+      <p style="font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1.2rem;font-family:'Jost',sans-serif;text-align:center;">As featured in · from the early days of Mister Lasagna, 2016</p>
+      <div style="display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem;align-items:center;justify-content:center;">
+        <span style="font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.35);font-family:'Jost',sans-serif;letter-spacing:0.05em;">Time Out London</span>
+        <span style="font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.35);font-family:'Jost',sans-serif;letter-spacing:0.05em;">Hot Dinners</span>
+        <span style="font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.35);font-family:'Jost',sans-serif;letter-spacing:0.05em;">Londonist</span>
+        <span style="font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.35);font-family:'Jost',sans-serif;letter-spacing:0.05em;">Secret London</span>
+        <span style="font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.35);font-family:'Jost',sans-serif;letter-spacing:0.05em;">The Sun</span>
+        <span style="font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.35);font-family:'Jost',sans-serif;letter-spacing:0.05em;">Heart London 96-107</span>
+        <span style="font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.35);font-family:'Jost',sans-serif;letter-spacing:0.05em;">Il Mattino</span>
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-bottom:5rem;align-items:start;">
+      <div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:white;line-height:1.2;margin-bottom:1.5rem;">Not a concept<br><em style="font-style:italic;color:#ff9999;">to test.</em><br>A model already validated.</h2>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.08rem;line-height:1.85;color:rgba(255,255,255,0.5);">
+          <p style="margin-bottom:1rem;">Mister Lasagna was born in London in 2016. Over 10 years, it became a real-world validation of a product, a format and a system — not a pitch deck.</p>
+          <p style="margin-bottom:1rem;">Iconic London locations. International franchise in South Korea. A pandemic that forced strategic reinvention, leading to Lasagneria Italiana — a premium casual format built on the same operational backbone.</p>
+          <p>We didn't start with investors. We started with a product, refined it under pressure, and built the system around what actually works. Now we're looking for a partner to accelerate what we've already proven we can build.</p>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1rem;">
+        <div style="background:rgba(255,255,255,0.04);border-left:3px solid var(--gold);padding:1.5rem 1.8rem;">
+          <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;font-family:'Jost',sans-serif;">Key fact</div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(255,255,255,0.6);line-height:1.6;font-style:italic;">"Molti brand cercano capitale per costruire il sistema. Noi cerchiamo capitale per accelerare un sistema già esistente."</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border-left:3px solid #cc3333;padding:1.5rem 1.8rem;">
+          <div style="font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:#ff9999;margin-bottom:0.5rem;font-family:'Jost',sans-serif;">Current status</div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(255,255,255,0.6);line-height:1.6;">Capital already reinvested. Notting Hill open. New openings in pipeline. UK property market creating real opportunities.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 REASONS -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:400;color:white;margin-bottom:2rem;">Why invest <em style="font-style:italic;color:#ff9999;">in us.</em></h3>
+    <div class="invest-grid" style="margin-bottom:5rem;">
+      <div class="invest-card">
+        <div class="invest-num">01</div>
+        <div class="invest-title">Real Track Record</div>
+        <div class="invest-body">10 years of presence in London. Experience in iconic locations. <strong>International validation in South Korea.</strong> Two formats already tested. New openings already in pipeline. This is not a concept to test — it's a model already validated.</div>
+      </div>
+      <div class="invest-card">
+        <div class="invest-num">02</div>
+        <div class="invest-title">Vertical Product, High Scalability</div>
+        <div class="invest-body">Lasagna is <strong>universally recognisable, standardisable and industrialisable</strong> without losing identity. Suitable for dine-in, takeaway, delivery and retail. Less complex than artisan pizza or generic Italian cuisine.</div>
+      </div>
+      <div class="invest-card">
+        <div class="invest-num">03</div>
+        <div class="invest-title">System Already Built</div>
+        <div class="invest-body">Consolidated operational manual. <strong>Codified recipes</strong> with precise quantities. Clear organisational structure. Replicable training. Multi-unit staff rotation. Defined company culture. The system exists — capital accelerates it.</div>
+      </div>
+      <div class="invest-card">
+        <div class="invest-num">04</div>
+        <div class="invest-title">Multi-Format Model</div>
+        <div class="invest-body"><strong>Mister Lasagna</strong> — scalable, contained CAPEX, high rotation. <strong>Lasagneria Italiana</strong> — premium positioning, strategic flagship locations. This duality reduces risk and broadens market potential.</div>
+      </div>
+      <div class="invest-card">
+        <div class="invest-num">05</div>
+        <div class="invest-title">Industrial Upside</div>
+        <div class="invest-body">A central production hub unlocks three growth levers: <strong>multi-unit expansion, entry into retail (supermarkets, airlines, GDO), and franchising across UK and Europe.</strong> This transforms the group from retail operator to integrated food platform.</div>
+      </div>
+      <div class="invest-card">
+        <div class="invest-num">06</div>
+        <div class="invest-title">Strategic Moment</div>
+        <div class="invest-body">Capital already reinvested. New openings imminent. <strong>UK property market creating real acquisition opportunities.</strong> Brand already recognised. Entering now means entering the acceleration phase — not the experimental one.</div>
+      </div>
+    </div>
+
+    <!-- NEXT PHASE -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:400;color:white;margin-bottom:2rem;">The next <em style="font-style:italic;color:#ff9999;">phase.</em></h3>
+    <div class="next-phase" style="margin-bottom:5rem;">
+      <div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1.08rem;color:rgba(255,255,255,0.5);line-height:1.85;margin-bottom:2rem;">The real acceleration requires one strategic asset: <strong style="color:rgba(255,255,255,0.8);font-style:italic;font-weight:400;">a central production hub.</strong> A central kitchen or a large-format Lasagneria Italiana that becomes the industrial core of the group.</p>
+        <div class="phase-item"><div class="phase-dot"></div><div class="phase-text"><strong>Total product standardisation</strong> — centralised production at scale.</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div class="phase-text"><strong>Economies of scale</strong> — across the multi-unit network.</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div class="phase-text"><strong>Retail entry</strong> — supermarkets, airlines, large-scale distribution.</div></div>
+        <div class="phase-item"><div class="phase-dot"></div><div class="phase-text"><strong>Franchise infrastructure</strong> — solid base for UK and European expansion.</div></div>
+      </div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(201,169,110,0.12);padding:3rem;">
+        <div style="font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-family:'Jost',sans-serif;">The transformation</div>
+        <p style="font-family:'Playfair Display',serif;font-size:1.3rem;color:white;font-weight:400;line-height:1.5;margin-bottom:1.5rem;">From retail operator<br><em style="color:var(--gold);font-style:italic;">to integrated food platform.</em></p>
+        <div style="display:flex;flex-direction:column;gap:0.8rem;">
+          <div style="display:flex;align-items:center;gap:0.8rem;"><span style="font-size:0.7rem;color:rgba(255,255,255,0.25);font-family:'Jost',sans-serif;min-width:100px;">Started as</span><span style="font-size:0.78rem;color:rgba(255,255,255,0.5);font-family:'Jost',sans-serif;">A restaurant</span></div>
+          <div style="display:flex;align-items:center;gap:0.8rem;"><span style="font-size:0.7rem;color:rgba(255,255,255,0.25);font-family:'Jost',sans-serif;min-width:100px;">Became</span><span style="font-size:0.78rem;color:rgba(255,255,255,0.5);font-family:'Jost',sans-serif;">A brand</span></div>
+          <div style="display:flex;align-items:center;gap:0.8rem;"><span style="font-size:0.7rem;color:rgba(255,255,255,0.25);font-family:'Jost',sans-serif;min-width:100px;">Built</span><span style="font-size:0.78rem;color:rgba(255,255,255,0.5);font-family:'Jost',sans-serif;">Two formats + a system</span></div>
+          <div style="display:flex;align-items:center;gap:0.8rem;"><span style="font-size:0.7rem;color:rgba(255,255,255,0.25);font-family:'Jost',sans-serif;min-width:100px;">Now</span><span style="font-size:0.78rem;color:rgba(201,169,110,0.85);font-family:'Jost',sans-serif;font-weight:500;">Ready to become a chain</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INVEST FORM -->
+    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(204,51,51,0.15);padding:4rem 3rem;">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <div style="font-size:0.66rem;letter-spacing:0.3em;text-transform:uppercase;color:#ff9999;margin-bottom:0.8rem;font-family:'Jost',sans-serif;">Investment Enquiry</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:400;color:white;">Let's have a <em style="color:#ff9999;font-style:italic;">confidential conversation.</em></h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(255,255,255,0.35);font-style:italic;max-width:500px;margin:0.8rem auto 0;">We're not looking for someone to fund an idea. We're looking for a partner to accelerate a system we've already proven we can build.</p>
+      </div>
+      <div class="fr-form">
+        <div class="form-row">
+          <div class="form-group"><label>Name</label><input type="text" id="inv_name" placeholder="Your name"></div>
+          <div class="form-group"><label>Company / Fund</label><input type="text" id="inv_company" placeholder="Organisation (if applicable)"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Email</label><input type="email" id="inv_email" placeholder="your@email.com"></div>
+          <div class="form-group"><label>Phone</label><input type="tel" id="inv_phone" placeholder="+44..."></div>
+        </div>
+        <div class="form-group"><label>Your interest</label><select id="inv_type"><option value="">Select...</option><option>Equity investment</option><option>Strategic partnership</option><option>Both</option><option>Prefer to discuss</option></select></div>
+        <div class="form-group"><label>Message</label><textarea id="inv_message" placeholder="Tell us about yourself and your investment focus..."></textarea></div>
+        <button class="form-submit-red" onclick="submitForm('invest')">Send Investment Enquiry</button>
+        <div class="form-success" id="inv_success"><p>Thank you — we'll be in touch soon for a confidential conversation.</p></div>
+        <p class="form-note">Strictly confidential · Sent to infolasagneriaitaliana@gmail.com · We respond within 24 hours</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing-quote">
+  <div class="closing-mastoc">All you need is Lasagna</div>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:rgba(255,255,255,0.3);font-style:italic;margin:1rem 0;">2 formats · 1 Italian passion · London · Since 2016</p>
+  <div class="closing-sub" style="margin-top:0.5rem;">Siamo partiti come un ristorante. Siamo diventati un brand. Ora siamo pronti a diventare una catena.</div>
+</div>
+
+<footer style="background:#0a0a0a;padding:2rem 3rem;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <span style="font-size:0.65rem;color:rgba(255,255,255,0.2);font-family:'Jost',sans-serif;">© 2026 Lasagneria Italiana · Lifiuk Ltd · infolasagneriaitaliana@gmail.com</span>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="lasagneria/index.html" style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-decoration:none;font-family:'Jost',sans-serif;letter-spacing:0.1em;text-transform:uppercase;">Lasagneria Italiana</a>
+      <a href="mister/index.html" style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-decoration:none;font-family:'Jost',sans-serif;letter-spacing:0.1em;text-transform:uppercase;">Mister Lasagna</a>
+      <a href="our-story.html" style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-decoration:none;font-family:'Jost',sans-serif;letter-spacing:0.1em;text-transform:uppercase;">Our Story</a>
+      <a href="index.html" style="font-size:0.65rem;color:rgba(255,255,255,0.3);text-decoration:none;font-family:'Jost',sans-serif;letter-spacing:0.1em;text-transform:uppercase;">Home</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function submitForm(type) {
+  var prefix = type === 'franchise' ? 'fr' : 'inv';
+  var name = document.getElementById(prefix + '_name').value;
+  var email = document.getElementById(prefix + '_email').value;
+  if (!name || !email) { alert('Please fill in at least your name and email.'); return; }
+  var subject, body;
+  if (type === 'franchise') {
+    subject = encodeURIComponent('Franchise Enquiry - ' + (document.getElementById('fr_format').value || 'General') + ' - ' + (document.getElementById('fr_location').value || 'TBC'));
+    body = encodeURIComponent('Name: ' + name + ' ' + (document.getElementById('fr_surname').value||'') + '\nEmail: ' + email + '\nPhone: ' + (document.getElementById('fr_phone').value||'') + '\nFormat: ' + (document.getElementById('fr_format').value||'') + '\nLocation: ' + (document.getElementById('fr_location').value||'') + '\n\nMessage:\n' + (document.getElementById('fr_message').value||''));
+  } else {
+    subject = encodeURIComponent('Investment Enquiry - ' + (document.getElementById('inv_type').value||'General'));
+    body = encodeURIComponent('Name: ' + name + '\nCompany: ' + (document.getElementById('inv_company').value||'') + '\nEmail: ' + email + '\nPhone: ' + (document.getElementById('inv_phone').value||'') + '\nInterest: ' + (document.getElementById('inv_type').value||'') + '\n\nMessage:\n' + (document.getElementById('inv_message').value||''));
+  }
+  window.location.href = 'mailto:infolasagneriaitaliana@gmail.com?subject=' + subject + '&body=' + body;
+  document.getElementById(prefix + '_success').style.display = 'block';
+}
+document.querySelectorAll('.mobile-menu a').forEach(function(a){
+  a.addEventListener('click',function(){document.querySelectorAll('.mobile-menu').forEach(function(m){m.classList.remove('open');});});
+});
+// Smooth scroll per anchor links
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+</body>
+</html>
