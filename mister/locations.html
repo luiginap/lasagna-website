@@ -448,6 +448,19 @@ footer.ml { background:var(--ml-red-dark); }
     <a href="../lasagneria/index.html" class="nav-switch">Lasagneria Italiana ↗</a>
     <a href="../mister/menu.html" class="nav-cta ml">View Menu</a>
   </div>
+
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu ml-bg" id="mobileMenu">
+    <button class="mobile-menu-close">✕</button>
+    <a href="../mister/index.html">Home ML</a>
+    <a href="../mister/menu.html">Menu</a>
+    <a href="../mister/locations.html">Locations</a>
+    <a href="../our-story.html">Our Story</a>
+    <a href="../lasagneria/index.html">Lasagneria Italiana ↗</a>
+    <a href="../index.html">← Home</a>
+  </div>
 </nav>
 
 <div style="background:var(--ml-red-dark);padding:8rem 3rem 4rem;position:relative;overflow:hidden;">
@@ -534,31 +547,26 @@ footer.ml { background:var(--ml-red-dark); }
     </div>
   </div>
 </footer>
-
 <script>
-// Mobile menu — open/close + click outside to close
-document.querySelectorAll('.hamburger').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    var menu = btn.closest('nav').querySelector('.mobile-menu') ||
-               document.querySelector('.mobile-menu');
-    if (menu) menu.classList.add('open');
-  });
-});
-document.querySelectorAll('.mobile-menu-close').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    btn.closest('.mobile-menu').classList.remove('open');
-  });
-});
-document.querySelectorAll('.mobile-menu').forEach(function(menu) {
-  menu.addEventListener('click', function(e) {
-    if (e.target === menu) menu.classList.remove('open');
-  });
-  menu.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      menu.classList.remove('open');
+(function() {
+  var btn = document.querySelector('.hamburger');
+  var menu = document.querySelector('.mobile-menu');
+  var closeBtn = document.querySelector('.mobile-menu-close');
+  if (btn && menu) {
+    btn.addEventListener('click', function() { menu.classList.add('open'); });
+  }
+  if (closeBtn && menu) {
+    closeBtn.addEventListener('click', function() { menu.classList.remove('open'); });
+  }
+  if (menu) {
+    menu.addEventListener('click', function(e) {
+      if (e.target === menu) menu.classList.remove('open');
     });
-  });
-});
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { menu.classList.remove('open'); });
+    });
+  }
+})();
 </script>
 </body>
 </html>

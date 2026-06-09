@@ -592,14 +592,15 @@ footer.ml { background:var(--ml-red-dark); }
     <a href="franchising.html" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;font-family:'Jost',sans-serif;">Franchising</a>
     <a href="index.html" style="color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;font-family:'Jost',sans-serif;">&#8592; Home</a>
   </div>
-  <button class="hamburger" onclick="document.getElementById('storyMenu').classList.add('open')" aria-label="Menu">
+
+  <button class="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-  <div class="mobile-menu" style="background:rgba(12,12,12,0.98);" id="storyMenu">
-    <button class="mobile-menu-close" onclick="document.getElementById('storyMenu').classList.remove('open')">✕</button>
-    <a href="index.html">&#8592; Home</a>
+  <div class="mobile-menu dark-bg" id="mobileMenu">
+    <button class="mobile-menu-close">✕</button>
     <a href="lasagneria/index.html">Lasagneria Italiana</a>
     <a href="mister/index.html">Mister Lasagna</a>
+    <a href="our-story.html">Our Story</a>
     <a href="franchising.html">Franchising</a>
     <a href="index.html">← Home</a>
   </div>
@@ -759,31 +760,26 @@ footer.ml { background:var(--ml-red-dark); }
 <script>
 });
 </script>
-
 <script>
-// Mobile menu — open/close + click outside to close
-document.querySelectorAll('.hamburger').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    var menu = btn.closest('nav').querySelector('.mobile-menu') ||
-               document.querySelector('.mobile-menu');
-    if (menu) menu.classList.add('open');
-  });
-});
-document.querySelectorAll('.mobile-menu-close').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    btn.closest('.mobile-menu').classList.remove('open');
-  });
-});
-document.querySelectorAll('.mobile-menu').forEach(function(menu) {
-  menu.addEventListener('click', function(e) {
-    if (e.target === menu) menu.classList.remove('open');
-  });
-  menu.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      menu.classList.remove('open');
+(function() {
+  var btn = document.querySelector('.hamburger');
+  var menu = document.querySelector('.mobile-menu');
+  var closeBtn = document.querySelector('.mobile-menu-close');
+  if (btn && menu) {
+    btn.addEventListener('click', function() { menu.classList.add('open'); });
+  }
+  if (closeBtn && menu) {
+    closeBtn.addEventListener('click', function() { menu.classList.remove('open'); });
+  }
+  if (menu) {
+    menu.addEventListener('click', function(e) {
+      if (e.target === menu) menu.classList.remove('open');
     });
-  });
-});
+    menu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { menu.classList.remove('open'); });
+    });
+  }
+})();
 </script>
 </body>
 </html>
