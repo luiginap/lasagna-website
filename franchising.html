@@ -916,19 +916,55 @@ footer.ml { background:var(--ml-red-dark); }
 <script>
 function submitForm(type) {
   var prefix = type === 'franchise' ? 'fr' : 'inv';
-  var name = document.getElementById(prefix + '_name').value;
-  var email = document.getElementById(prefix + '_email').value;
+  var name    = document.getElementById(prefix + '_name').value.trim();
+  var email   = document.getElementById(prefix + '_email').value.trim();
   if (!name || !email) { alert('Please fill in at least your name and email.'); return; }
-  var subject, body;
+
+  var data = { _replyto: email };
+
   if (type === 'franchise') {
-    subject = encodeURIComponent('Franchise Enquiry - ' + (document.getElementById('fr_format').value || 'General') + ' - ' + (document.getElementById('fr_location').value || 'TBC'));
-    body = encodeURIComponent('Name: ' + name + ' ' + (document.getElementById('fr_surname').value||'') + '\nEmail: ' + email + '\nPhone: ' + (document.getElementById('fr_phone').value||'') + '\nFormat: ' + (document.getElementById('fr_format').value||'') + '\nLocation: ' + (document.getElementById('fr_location').value||'') + '\n\nMessage:\n' + (document.getElementById('fr_message').value||''));
+    data['_subject'] = 'Franchise Enquiry — ' + (document.getElementById('fr_format').value || 'General') + ' — ' + (document.getElementById('fr_location').value || 'TBC');
+    data['First Name']  = name;
+    data['Last Name']   = document.getElementById('fr_surname').value.trim();
+    data['Email']       = email;
+    data['Phone']       = document.getElementById('fr_phone').value.trim();
+    data['Format']      = document.getElementById('fr_format').value;
+    data['Location']    = document.getElementById('fr_location').value.trim();
+    data['Message']     = document.getElementById('fr_message').value.trim();
   } else {
-    subject = encodeURIComponent('Investment Enquiry - ' + (document.getElementById('inv_type').value||'General'));
-    body = encodeURIComponent('Name: ' + name + '\nCompany: ' + (document.getElementById('inv_company').value||'') + '\nEmail: ' + email + '\nPhone: ' + (document.getElementById('inv_phone').value||'') + '\nInterest: ' + (document.getElementById('inv_type').value||'') + '\n\nMessage:\n' + (document.getElementById('inv_message').value||''));
+    data['_subject'] = 'Investment Enquiry — ' + (document.getElementById('inv_type').value || 'General');
+    data['Name']     = name;
+    data['Company']  = document.getElementById('inv_company').value.trim();
+    data['Email']    = email;
+    data['Phone']    = document.getElementById('inv_phone').value.trim();
+    data['Interest'] = document.getElementById('inv_type').value;
+    data['Message']  = document.getElementById('inv_message').value.trim();
   }
-  window.location.href = 'mailto:infolasagneriaitaliana@gmail.com?subject=' + subject + '&body=' + body;
-  document.getElementById(prefix + '_success').style.display = 'block';
+
+  var btn = document.querySelector(type === 'franchise' ? '.form-submit-gold' : '.form-submit-red');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  fetch('https://formspree.io/f/mpqelnqw', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(function(res) {
+    if (res.ok) {
+      document.getElementById(prefix + '_success').style.display = 'block';
+      btn.style.display = 'none';
+    } else {
+      btn.disabled = false;
+      btn.textContent = type === 'franchise' ? 'Send Franchise Enquiry' : 'Send Investment Enquiry';
+      alert('Something went wrong. Please try again or email us directly at infolasagneriaitaliana@gmail.com');
+    }
+  })
+  .catch(function() {
+    btn.disabled = false;
+    btn.textContent = type === 'franchise' ? 'Send Franchise Enquiry' : 'Send Investment Enquiry';
+    alert('Connection error. Please try again or email us directly at infolasagneriaitaliana@gmail.com');
+  });
 }
 });
 // Smooth scroll per anchor links
