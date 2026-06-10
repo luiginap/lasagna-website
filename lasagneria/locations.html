@@ -305,22 +305,7 @@ footer.ml { background:var(--ml-red-dark); }
 /* ═══════════════════════════════════════════
    HAMBURGER MENU (mobile nav)
 ═══════════════════════════════════════════ */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 4px;
-  background: none;
-  border: none;
-}
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: rgba(255,255,255,0.7);
-  transition: all 0.3s;
-}
+
 .mobile-menu {
   display: none;
   position: fixed;
@@ -331,8 +316,6 @@ footer.ml { background:var(--ml-red-dark); }
   justify-content: center;
   gap: 1.5rem;
 }
-.mobile-menu.li-bg { background: rgba(28,50,40,0.98); }
-.mobile-menu.ml-bg { background: rgba(80,10,10,0.98); }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
   font-size: 1.5rem;
@@ -343,15 +326,7 @@ footer.ml { background:var(--ml-red-dark); }
   transition: color 0.2s;
 }
 .mobile-menu a:hover { color: var(--gold); }
-.mobile-menu-close {
-  position: absolute;
-  top: 1.5rem; right: 1.5rem;
-  background: none; border: none;
-  color: rgba(255,255,255,0.5);
-  font-size: 1.8rem;
-  cursor: pointer;
-  line-height: 1;
-}
+
 @media (max-width: 768px) {
   .hamburger { display: flex; }
 }
@@ -370,10 +345,7 @@ footer.ml { background:var(--ml-red-dark); }
   footer .footer-top { grid-template-columns:1fr!important; }
 }
 
-/* ═══ GLOBAL MOBILE FIX ═══ */
-@media (max-width: 768px) {
-
-  /* ── LOGOS: prevent clipping ── */
+/* ── LOGOS: prevent clipping ── */
   .top-logo-li { height: 32px !important; width: auto !important; }
   .top-logo-ml { height: 28px !important; width: auto !important; }
   .top-divider  { height: 28px !important; }
@@ -388,38 +360,6 @@ footer.ml { background:var(--ml-red-dark); }
   }
   .dish-n, .timeline-title { font-size: 0.98rem !important; }
   .cat-header h2, .cat-title h2 { font-size: 1.4rem !important; }
-
-  /* ── HAMBURGER MENU: fullscreen, no overlap ── */
-  .hamburger { display: flex !important; margin-left: auto; }
-  .mobile-menu {
-    position: fixed !important;
-    top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
-    width: 100vw !important; height: 100vh !important;
-    z-index: 9999 !important;
-    display: none !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 1.8rem !important;
-    overflow: hidden !important;
-  }
-  .mobile-menu.open { display: flex !important; }
-  .mobile-menu a {
-    font-size: 1.3rem !important;
-    font-family: 'Playfair Display', serif !important;
-    color: rgba(255,255,255,0.85) !important;
-    text-decoration: none !important;
-  }
-  .mobile-menu-close {
-    position: absolute !important;
-    top: 1.2rem !important; right: 1.2rem !important;
-    font-size: 2rem !important;
-    background: none !important; border: none !important;
-    color: rgba(255,255,255,0.6) !important;
-    cursor: pointer !important; z-index: 10000 !important;
-    width: 44px !important; height: 44px !important;
-    display: flex !important; align-items: center !important; justify-content: center !important;
-  }
 
   /* ── NAV: compact, no wrap ── */
   nav {
@@ -436,6 +376,67 @@ footer.ml { background:var(--ml-red-dark); }
   nav > div:nth-child(2) { display: none !important; }
 }
 
+
+/* ── HAMBURGER & MOBILE MENU ─────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+  flex-shrink: 0;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: rgba(255,255,255,0.8);
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
+  z-index: 9999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  overflow: hidden;
+}
+.mobile-menu.open {
+  display: flex !important;
+}
+.mobile-menu a {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+}
+.mobile-menu-close {
+  position: absolute;
+  top: 1.2rem; right: 1.2rem;
+  background: none; border: none;
+  color: rgba(255,255,255,0.7);
+  font-size: 2.2rem;
+  cursor: pointer;
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  line-height: 1;
+}
+.li-bg { background: rgba(20,42,28,0.97); }
+.ml-bg { background: rgba(65,8,8,0.97); }
+.dark-bg { background: rgba(8,8,8,0.98); }
+@media (max-width: 768px) {
+  .hamburger { display: flex !important; }
+  .nav-links { display: none !important; }
+  .nav-switch { display: none !important; }
+  .nav-cta { display: none !important; }
+  nav > div:last-child > a { display: none !important; }
+  nav > div:nth-child(2) { display: none !important; }
+}
 </style>
 </head>
 <body>
@@ -452,9 +453,10 @@ footer.ml { background:var(--ml-red-dark); }
     <a href="https://web.dojo.app/create_booking/group/5qt6rTqoJl2aVLNqFq9ZtVxUH9iiGwRTs4SR9NgTXMI_group?vendor_id=95zcTmtTGWmeg1_th3RhpzNb1VstRmCIQvr1lnD2iIE_restaurant&utm_source=reserve_with_google_action_link&rwg_token=AFd1xnHebDFX3NQCm2g_99uzbMx-2THvUdpBBUNR6UAmbR7S2tpDFajjrAVRCzweAm0oGTF3yXzomGfvO6-K9t1-WZWW3XTqO-YHi7PlhxF23g5Iyi4bVtc%3D" class="nav-cta li" target="_blank">Book a Table</a>
   </div>
 
-  <button class="hamburger" aria-label="Menu">
+  <button class="hamburger" aria-label="Open menu">
     <span></span><span></span><span></span>
   </button>
+</nav>
   <div class="mobile-menu li-bg" id="mobileMenu">
     <button class="mobile-menu-close">✕</button>
     <a href="../lasagneria/index.html">Home LI</a>
@@ -464,7 +466,6 @@ footer.ml { background:var(--ml-red-dark); }
     <a href="../mister/index.html">Mister Lasagna ↗</a>
     <a href="../index.html">← Home</a>
   </div>
-</nav>
 
 <div style="background:var(--forest-dark);padding:8rem 3rem 4rem;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(201,169,110,0.03) 60px,rgba(201,169,110,0.03) 61px);"></div>
@@ -607,25 +608,29 @@ footer.ml { background:var(--ml-red-dark); }
   </div>
 </footer>
 <script>
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
   var btn = document.querySelector('.hamburger');
-  var menu = document.querySelector('.mobile-menu');
+  var menu = document.getElementById('mobileMenu');
   var closeBtn = document.querySelector('.mobile-menu-close');
-  if (btn && menu) {
-    btn.addEventListener('click', function() { menu.classList.add('open'); });
-  }
-  if (closeBtn && menu) {
-    closeBtn.addEventListener('click', function() { menu.classList.remove('open'); });
-  }
-  if (menu) {
-    menu.addEventListener('click', function(e) {
-      if (e.target === menu) menu.classList.remove('open');
-    });
-    menu.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() { menu.classList.remove('open'); });
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    menu.classList.add('open');
+  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      menu.classList.remove('open');
     });
   }
-})();
+  menu.addEventListener('click', function(e) {
+    if (e.target === menu) menu.classList.remove('open');
+  });
+  menu.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      menu.classList.remove('open');
+    });
+  });
+});
 </script>
 </body>
 </html>
