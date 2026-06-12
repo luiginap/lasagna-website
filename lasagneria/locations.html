@@ -372,12 +372,13 @@ footer.ml { background:var(--ml-red-dark); }
   .nav-links     { display: none !important; }
   .nav-switch    { display: none !important; }
   .nav-cta       { display: none !important; }
-  nav > div:last-child > *:not(.hamburger) { display: none !important; }
+  nav > div:last-child:not(.hamburger) > *:not(.hamburger) { display: none !important; }
   nav > div:nth-child(2) { display: none !important; }
 }
 
 
 /* ── HAMBURGER & MOBILE MENU ─────────────────── */
+.hamburger svg { display: block !important; }
 .hamburger {
   display: none;
   flex-direction: column;
@@ -440,7 +441,7 @@ footer.ml { background:var(--ml-red-dark); }
   .nav-links { display: none !important; }
   .nav-switch { display: none !important; }
   .nav-cta { display: none !important; }
-  nav > div:last-child > a { display: none !important; }
+  nav > div:last-child:not(.hamburger) > a { display: none !important; }
   nav > div:nth-child(2) { display: none !important; }
 }
 </style>
